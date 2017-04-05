@@ -7,15 +7,15 @@ int main()
     v[i]=0; // inicializamos vector
     do
     {
-    printf("Ingrese posici¢n: ");
-    scanf("%d",&pos);
-    printf("Ingrese valor a cargar en el vector: ");
-    scanf("%d",&v[pos]);
-    printf("Desea ingresar otro dato S/N? ");
-    scanf(" %c",&seguir);
+        printf("Ingrese posici¢n: ");
+        scanf("%d",&pos);
+        printf("Ingrese valor a cargar en el vector: ");
+        scanf("%d",&v[pos]);
+        printf("Desea ingresar otro dato S/N? ");
+        scanf(" %c",&seguir);
     }while(seguir=='s');
     for(i=0;i<3;i++)
-    printf("%d", v[i]);
+        printf("%d", v[i]);
 
 
 
