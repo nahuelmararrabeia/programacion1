@@ -11,11 +11,11 @@ int main()
     fgets(saludo1,6,stdin);
     fflush(stdin);
     fgets(saludo2,6,stdin);
-    int cas=strcmp(saludo1,saludo2);
+    int cas=strcmp(*saludo1,*saludo2);
 
     printf("%d", &cas);
 
-// VER
+// PROBAR
 //strupr(cad); pasa la cadena a matusculas
 //strlwr(cad); pasa la cadena a minusculas
 /* char nom[31];
