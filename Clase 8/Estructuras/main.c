@@ -38,19 +38,20 @@ void main(void)
         printf("ingrese el nombre del alumno: ");
         fflush(stdin);
         gets(pers[i].nombre);
-
+        printf("ingrese nota del alumno: ");
+        scanf("%d", &pers[i].nota);
 
     }
     for(i=0; i<MAX-1; i++)
         for(j=i+1; j<MAX; j++)
-            if((strcmp(pers[i].nombre,pers[j].nombre))<0)
+            if((strcmp(pers[i].nombre,pers[j].nombre))>0)
             {
                 aux=pers[i];
                 pers[i]=pers[j];
                 pers[j]=aux;
-                  for(i=0; i<MAX; i++)
-            printf("%s", pers[i].nombre);
-            }
 
-// ...
+            }
+            for(i=0; i<MAX; i++)
+            printf("\n%s %d\n", pers[i].nombre,pers[i].nota);
+
 }
