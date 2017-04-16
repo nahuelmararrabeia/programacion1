@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1491871488 source:c:\users\alumno\desktop\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1491872593 source:d:\nahuelmararrabeia\programacion1-master\clase 7\cadenas\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1492356985 source:c:\users\user\desktop\programacion1-master\clase 7\cadenas\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1492357529 source:c:\users\user\desktop\programacion1-master\clase 7\cadenas\abm\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1492296514 c:\users\user\desktop\programacion1-master\clase 7\cadenas\abm\funciones.h
+
