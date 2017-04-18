@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1492473403 source:d:\nahuelmararrabeia\programacion1-master\abm estructuras\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1492472919 d:\nahuelmararrabeia\programacion1-master\abm estructuras\funciones.h
+
+1492473425 source:d:\nahuelmararrabeia\programacion1-master\abm estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
