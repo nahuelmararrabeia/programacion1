@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1493074934 source:d:\nahuelmararrabeia\programacion1-master\practica clase11-12\clase11-12\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1492564234 d:\nahuelmararrabeia\programacion1-master\practica clase11-12\clase11-12\funciones.h
+
+1493075194 source:d:\nahuelmararrabeia\programacion1-master\practica clase11-12\clase11-12\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
