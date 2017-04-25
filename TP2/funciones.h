@@ -4,17 +4,19 @@
 typedef struct {
 
     char nombre[50];
-    int edad;
+    char edad;
     int estado;
     int dni;
 
 }Epersona;
 
-
-void agregarPersona(Epersona, int);
-void borrarPersona(Epersona, int);
-void listaOrdenada(Epersona, int);
-void startEstado(Epersona, int);
+int stringNumerico(char [], char []);
+void getString(char [], char []);
+int esNumero(char []);
+void agregarPersona(Epersona [], int);
+void borrarPersona(Epersona[], int);
+void listaOrdenada(Epersona[], int);
+void inicEstado(Epersona[], int);
 /**
  * Obtiene el primer indice libre del array.
  * @param lista el array se pasa como parametro.
