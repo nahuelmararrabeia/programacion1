@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funciones.h"
-#define E 5
+#define E 3
 
 int main()
 {
     char seguir='s';
-    int opcion=0;
+    char opcion;
     Epersona persona[E];
     inicEstado(persona,E);
 
@@ -20,29 +20,35 @@ int main()
         printf("4- Imprimir grafico de edades\n\n");
         printf("5- Salir\n");
         printf("\nOPCION: ");
-        scanf("%d",&opcion);
+        fflush(stdin);
+        scanf("%c",&opcion);
+        while(opcion<'1' || opcion>'5')
+        {
+            printf("Opcion invalida.\nSeleccione una opcion: ");
+            fflush(stdin);
+            scanf("%c",&opcion);
+        }
         system("cls");
 
         switch(opcion)
         {
-            case 1:
+            case '1':
                 agregarPersona(persona, E);
 
                 break;
-            case 2:
+            case '2':
                 borrarPersona(persona,E);
                 break;
-            case 3:
+            case '3':
                 listaOrdenada(persona,E);
                 break;
-            case 4:
+            case '4':
 
                 break;
-            case 5:
+            case '5':
                 seguir = 'n';
                 break;
         }
     }
-
     return 0;
 }

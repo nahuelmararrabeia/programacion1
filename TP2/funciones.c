@@ -3,22 +3,49 @@
 #include <string.h>
 #include "funciones.h"
 
-
-void inicEstado(Epersona persona[],  int tam)
+int stringNumerico(char mensaje[], char input[])
 {
-    int i;
-    for(i=0; i<tam; i++)
+    char aux[25];
+    getString(mensaje, aux);
+    if(esNumero(aux))
     {
-        persona[i].estado=0;
+        strcpy(input, aux);
+        return 1;
     }
+    return 0;
+}//stringNumerico
 
-}
+void getString(char mensaje[], char input[])
+{
+    printf("%s", mensaje);
+    gets(input);
+}// getString
+
+
+int esNumero(char str[])
+{
+    int i = 0;
+    while(str[i]!='\0')
+    {
+        if(str[i]<'0' || str[i]>'9')
+            return 0;
+        i++;
+    }
+    return 1;
+}// esNumero
+
+int contadorChar(char str[])
+ {
+     int aux;
+     aux=strlen(str);
+     return aux;
+ }//contadorChar
 
 
 void agregarPersona(Epersona persona[], int tam)
 {
     printf("-----------AGREGAR PERSONA-----------\n");
-    int i,flagEncontro=0;
+    int i,flagEncontro=0,j;
     for(i=0; i<tam; i++)
     {
         if(persona[i].estado==0)
@@ -26,34 +53,52 @@ void agregarPersona(Epersona persona[], int tam)
             printf("\nNombre: ");
             fflush(stdin);
             gets(persona[i].nombre);
-            stringNumerico("\nEdad: ", persona[i].edad);
-
-
-            /*while(persona[i].edad<1 || persona[i].edad>150)
+            while(stringLetras(persona[i].nombre)==0)
             {
-                printf("\nEdad invalida, vuelva a ingresar la edad: ");
-                scanf("%d", &persona[i].edad);
-            }*/
-            printf("\nDNI: ");
-            scanf("%d", &persona[i].dni);
+                printf("\nEl nombre no acepta numeros ");
+                printf("\nNombre: ");
+                fflush(stdin);
+                gets(persona[i].nombre);
+            }
+
+            fflush(stdin);
+            while(stringNumerico("\nEdad: ", persona[i].edad)==0)
+            {
+                printf("\nEdad debe ser numerico! ");
+            }
+            fflush(stdin);
+            while(stringNumerico("\nDNI: ", persona[i].dni)==0)
+            {
+            printf("\nDNI debe ser numerico ");
+            }
+            while(contadorChar(persona[i].dni)<7 || contadorChar(persona[i].dni)>8)
+                   {
+                       printf("\nCantidad de digitos invalida");
+                        stringNumerico("\nDNI: ", persona[i].dni);
+                   }
+            /* while(unicCod(persona,tam)==0)
+             {
+                 printf("\nEl DNI ingresado ya existe");
+                 stringNumerico("\nDNI: ", persona[i].dni);
+             } */
 
             persona[i].estado=1;
             flagEncontro=1;
             system("cls");
             printf("\n----------PERSONA AGREGADA EXITOSAMENTE!--------");
-            printf("\nDNI\tNOMBRE\tEDAD\n");
-            printf("%d\t%s\t%d\n", persona[i].dni,persona[i].nombre,persona[i].edad);
+            printf("\nDNI\t\tNOMBRE\tEDAD\n");
+            printf("%s\t%s\t%s\n", persona[i].dni,persona[i].nombre,persona[i].edad);
             break;
 
         }
     }
     if(flagEncontro==0)
         printf("No hay espacio disponible");
-}
+}//agregarPersona
+
 
 void borrarPersona(Epersona persona[], int tam)
 {
-
     printf("-----------BORRAR PERSONA-----------\n");
     int i,auxDNI,flagEncontro=0;
     char opcion;
@@ -64,7 +109,7 @@ void borrarPersona(Epersona persona[], int tam)
         if(auxDNI==persona[i].dni)
         {
             flagEncontro=1;
-            printf("%s\t%d\t%d", persona[i].nombre, persona[i].edad,persona[i].dni);
+            printf("%s\t%d\t%s", persona[i].nombre, persona[i].edad,persona[i].dni);
             printf("\nDesea eliminar este registro?(s/n)");
             scanf(" %c", &opcion);
             while(opcion!='n' && opcion!='s')
@@ -87,63 +132,71 @@ void borrarPersona(Epersona persona[], int tam)
     }
     if(flagEncontro==0)
         printf("No se encontro el DNI ingresado");
-}
+}// borrarPersona
+
 
 void listaOrdenada(Epersona persona[], int tam)
 {
+    printf("-----------LISTA POR NOMBRE-----------\n\n");
     int i,j;
     Epersona auxStruct;
-    for(i=0; i<tam-1; i++)
+    printf("DNI\t\tNOMBRE\tEDAD\n");
+    for(i=0; i<tam; i++)
     {
-        for(j=i+1; j<tam; j++)
+        for(j=i+1; j<=tam; j++)
         {
             if(strcmp(persona[i].nombre, persona[j].nombre)<0)
             {
                 auxStruct = persona[i];
                 persona[i] = persona[j];
                 persona[j] = auxStruct;
-
             }
         }
-            printf("DNI\tNOMBRE\tEDAD\n");
-            for(i=0; i<tam; i++)
-            {
-                if(persona[i].estado!=0)
-                    printf("%d\t%s\t%d\n", persona[i].dni,persona[i].nombre,persona[i].edad);
-            }
-        }
-}
-
-int stringNumerico(char mensaje[], char input[])
-{
-    char aux[25];
-    getString(mensaje, aux);
-    if(esNumero(aux))
-    {
-        strcpy(input, aux);
-        return 1;
+            if(persona[i].estado!=0)
+                printf("%s\t%s\t%s\n", persona[i].dni,persona[i].nombre,persona[i].edad);
     }
-    return 0;
+}// listaOrdenada
 
 
-}
 
-void getString(char mensaje[], char input[])
+void inicEstado(Epersona persona[],  int tam)
 {
-    printf("%s", mensaje);
-    scanf("%s", input);
-}
+    int i;
+    for(i=0; i<tam; i++)
+    {
+        persona[i].estado=0;
+    }
+}// inicEstado
 
-int esNumero(char str[])
+
+
+
+
+ int stringLetras(char str[])
 {
     int i =0;
     while(str[i]!='\0')
     {
-        if(str[i]<'0' || str[i]>'9')
+        if((str[i]<'a' || str[i]>'z')&&(str[i]<'A' || str[i]>'A'))
             return 0;
-            i++;
+        i++;
     }
     return 1;
 }
+
+int unicCod(Epersona persona[], int tam)
+{
+    int i,j,retorno;
+    for(i=0;i<tam;i++)
+    {
+        for(j=0;i==tam;j++)
+        {
+            if(strcmp(persona[i].dni,persona[j].dni)==0)
+                retorno=0;
+        }
+    }
+    return 1;
+}
+
 
 
