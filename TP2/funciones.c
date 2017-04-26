@@ -45,7 +45,7 @@ int contadorChar(char str[])
 void agregarPersona(Epersona persona[], int tam)
 {
     printf("-----------AGREGAR PERSONA-----------\n");
-    int i,flagEncontro=0,j;
+    int i,flagEncontro=0,j, menor18=0, entre18y35=0, mayor35, auxInt;
     for(i=0; i<tam; i++)
     {
         if(persona[i].estado==0)
@@ -66,6 +66,16 @@ void agregarPersona(Epersona persona[], int tam)
             {
                 printf("\nEdad debe ser numerico! ");
             }
+            auxInt=atoi(persona[i].edad);
+            if(auxInt<18)
+                menor18++;
+            if(auxInt>18 && auxInt<35)
+                entre18y35++;
+            if(auxInt>35)
+                mayor35++;
+
+            printf("%d", menor18);
+
             fflush(stdin);
             while(stringNumerico("\nDNI: ", persona[i].dni)==0)
             {
@@ -76,11 +86,6 @@ void agregarPersona(Epersona persona[], int tam)
                        printf("\nCantidad de digitos invalida");
                         stringNumerico("\nDNI: ", persona[i].dni);
                    }
-            /* while(unicCod(persona,tam)==0)
-             {
-                 printf("\nEl DNI ingresado ya existe");
-                 stringNumerico("\nDNI: ", persona[i].dni);
-             } */
 
             persona[i].estado=1;
             flagEncontro=1;
@@ -169,9 +174,6 @@ void inicEstado(Epersona persona[],  int tam)
 }// inicEstado
 
 
-
-
-
  int stringLetras(char str[])
 {
     int i =0;
@@ -196,6 +198,11 @@ int unicCod(Epersona persona[], int tam)
         }
     }
     return 1;
+}
+
+void graficoBarras(int param1, int param2, int param3)
+{
+
 }
 
 
