@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1494290006 source:d:\parcial mararrabiea\parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1494289904 d:\parcial mararrabiea\parcial\funciones.h
+
+1494288224 source:d:\parcial mararrabiea\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
