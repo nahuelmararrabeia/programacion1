@@ -6,8 +6,10 @@
 int main()
 {
     char seguir='s';
-    int opcion=0;
+    int opcion=0,tam;
     EMovie movie;
+    EMovie *lista;
+    lista=(EMovie *)malloc(sizeof(EMovie));
 
 
     while(seguir=='s')
@@ -28,6 +30,7 @@ int main()
                 borrarPelicula(movie);
                 break;
             case 3:
+                generarPagina();
                break;
             case 4:
                 seguir = 'n';
