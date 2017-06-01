@@ -7,11 +7,11 @@ int main()
 {
     char seguir='s';
     int opcion=0,tam;
+    tam=cantidadRegistros();
     EMovie movie;
-    EMovie *lista;
-    lista=(EMovie *)malloc(sizeof(EMovie));
-
-
+    EMovie *movies;
+    EMovie movie1[tam];
+    movies=movie1;
     while(seguir=='s')
     {
         printf("1- Agregar pelicula\n");
@@ -30,7 +30,7 @@ int main()
                 borrarPelicula(movie);
                 break;
             case 3:
-                generarPagina();
+                generarPagina(movies);
                break;
             case 4:
                 seguir = 'n';
